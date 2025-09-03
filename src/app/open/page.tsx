@@ -8,6 +8,7 @@ import { FiSearch, FiX } from "react-icons/fi";
 import { useState } from "react";
 import { FormTicket } from "./components/FormTicket";
 import { api } from "@/lib/api";
+import toast from "react-hot-toast";
 
 
 const schema  = z.object({
@@ -44,6 +45,7 @@ export default function OpenTicket() {
             id: response.data.id,
             name: response.data.name
         });
+        toast.success("Cliente encontrado com sucesso!");
     }
     return (
         <div className="w-full max-w-2xl mx-auto px-2 mb-[16rem] mt-[17rem]">

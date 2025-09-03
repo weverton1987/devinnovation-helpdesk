@@ -12,7 +12,7 @@ export default async function Dashboard() {
     if (!session || !session.user) {
         redirect("/")
     }
-
+    
     const tickets = await prismaClient.ticket.findMany({
         where: {
             status: 'ABERTO',
@@ -27,8 +27,7 @@ export default async function Dashboard() {
             created_at: 'asc'
         }
     })
-
-
+    
     return (
         <Container>
             <main className="mt-9 mb-2">

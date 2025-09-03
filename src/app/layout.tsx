@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { AuthProvider } from "@/providers/auth";
 import { ModalProvider } from "@/providers/modal";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,10 @@ export default function RootLayout({
         <AuthProvider>
           <ModalProvider>
             <Header />
+            <Toaster
+              position="top-center"
+              reverseOrder={false}
+            />
             {children}
             <Footer />
           </ModalProvider>

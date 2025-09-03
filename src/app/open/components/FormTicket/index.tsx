@@ -6,6 +6,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "@/lib/api";
 import { CustomerDataInfo } from "@/app/open/page";
+import toast from "react-hot-toast";
 
 
 const schema = z.object({
@@ -29,6 +30,7 @@ export function FormTicket({ customer }: FormTicketProps) {
             description: data.descricao,
             customerId: customer.id
         });
+        toast.success("Chamado criado com sucesso!");
         setValue("nome", "");
         setValue("descricao", "");
     }
